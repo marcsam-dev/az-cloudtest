@@ -78,17 +78,19 @@ resource "azurerm_subnet_network_security_group_association" "elite_devnsg_assoc
   network_security_group_id = azurerm_network_security_group.elite_devnsg.id
 }
 
-resource "azurerm_network_security_rule" "RDP" {
-  name                        = "RDP"
-  priority                    = 100
-  direction                   = "Inbound"
-  access                      = "Allow"
-  protocol                    = "Tcp"
-  source_port_range           = "*"
-  destination_port_range      = "3389"
-  source_address_prefix       = "197.210.54.37/32"
-  destination_address_prefix  = "VirtualNetwork"
-  resource_group_name         = azurerm_resource_group.elite_general_network.name
-  network_security_group_name = azurerm_network_security_group.elite_devnsg.name
-}
+#resource "azurerm_network_security_rule" "RDP" {
+#  name                        = "RDP"
+#  priority                    = 100
+#  direction                   = "Inbound"
+#  access                      = "Allow"
+#  protocol                    = "Tcp"
+#  source_port_range           = "*"
+#  destination_port_range      = "3389"
+#  source_address_prefix       = "197.210.54.37/32"
+#  destination_address_prefix  = "VirtualNetwork"
+#  resource_group_name         = azurerm_resource_group.elite_general_network.name
+#  network_security_group_name = azurerm_network_security_group.elite_devnsg.name
+#}
+
+
 
