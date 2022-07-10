@@ -32,7 +32,7 @@ resource "azurerm_public_ip" "elitedev_pip" {
 
 
 resource "azurerm_windows_virtual_machine" "windows_Server" {
-  name                = "windows-Server"
+  name                = join("-", ["wind", "server", "dev"])
   location            = azurerm_resource_group.elite_general_resources.location
   resource_group_name = azurerm_resource_group.elite_general_resources.name
   size                = "Standard_DS1"
