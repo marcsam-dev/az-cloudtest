@@ -18,12 +18,9 @@ resource "azurerm_virtual_network" "elitedev_vnet" {
 
   # subnet = []
 
-  tags = {
-    environment = "development"
-    company     = "marcsamdev"
-    managedwith = "terraform"
-  }
+  tags = local.common_tags
 }
+
 resource "azurerm_route_table" "elite_rtb" {
   name                          = var.elite_rtb
   location                      = azurerm_resource_group.elite_general_network.location
@@ -36,11 +33,7 @@ resource "azurerm_route_table" "elite_rtb" {
     next_hop_type  = "VnetLocal"
   }
 
-  tags = {
-    environment = "development"
-    company     = "marcsamdev"
-    managedwith = "terraform"
-  }
+  tags = local.common_tags
 }
 
 resource "azurerm_subnet" "database_subnet" {
@@ -86,8 +79,8 @@ resource "azurerm_network_security_rule" "RDP" {
   protocol                    = "Tcp"
   source_port_range           = "*"
   destination_port_range      = "3389"
-  source_address_prefix       = var.source_address_prefix 
-  destination_address_prefix  = var.destination_address_prefix 
+  source_address_prefix       = var.source_address_prefix
+  destination_address_prefix  = var.destination_address_prefix
   resource_group_name         = azurerm_resource_group.elite_general_network.name
   network_security_group_name = azurerm_network_security_group.elite_devnsg.name
 }
