@@ -1,0 +1,3 @@
+az mysql flexible-server connect -n <servername> -u <username> -p <password> -d <databasename>
+
+az mysql flexible-server connect -n elitedevsqladmin -u elitedevsqladmin -p mA00vU3m7CIr5EGhn2Nr -d elitedevdb

@@ -62,3 +62,8 @@ variable "destination_address_prefix" {
   type    = string
   default = "VirtualNetwork"
 }
+
+variable "value" {
+  type    = string
+  default = "./elitelabtoolsazure.txt"
+}
